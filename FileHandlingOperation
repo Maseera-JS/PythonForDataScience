@@ -1,0 +1,95 @@
+# 20/1/25
+
+# Create a program that writes the following lines to a file named example.txt:
+# Hello, world!
+# Python is great for file handling.
+# Let's master it today.
+
+
+with open("source.txt" , "w") as file:
+    file.write("Hello, world!\nPython is great for file handling.\nLet's master it today.")
+    # data = file.read()
+    # print(data)
+
+
+
+
+
+# Write a program that:
+# Reads the content of a text file (e.g., example.txt).
+# Counts the number of words in the file and prints the result.
+with open("example.txt" , "r") as file:
+    data = file.read()
+    print(data)
+    print(len(data.split()))
+
+
+
+# Write a Python script to: Copy the content of a file source.txt into another file destination.txt.
+with open("source.txt" ,"r+") as f:
+    data  = f.read()
+    with open("destination.txt" ,"w") as d:
+        d.write(data)
+       
+
+
+ # Write a function that:Takes a file name and a word as input.Checks if the word exists in the file and returns the number of times it appears.
+def checker(fileName , word):
+    with open(fileName,"r") as f:
+        data = f.read()
+        if word in data:
+            count = data.count(word)
+            return count
+        else:
+            return 0
+
+
+checker("source.txt","Python")
+
+
+# Write a program to create a CSV file named students.csv with the following content:
+
+import csv
+
+with open("student.csv","w") as file :
+    
+    writer = csv.writer(file)
+    writer.writerow(["Name","Age","Grade"])
+    writer.writerow(["John",14,'A'])
+    writer.writerow(["Jane",15,'B'])
+    writer.writerow(["Alice",13,'A'])
+
+
+
+
+# Write a Python program that:
+# Reads the content of a file.
+# Writes the reversed content to another file (line by line).
+with open("source.txt" , "r") as f:
+    reverse = f.read()
+    dt = reverse.split()
+    rev = dt[::-1]
+    
+    with open("rev.txt" ,"w") as d:
+        d.write(" ".join(rev))
+        print("done")
+
+
+
+# Write a Python program to append the following lines to an existing file example.txt:
+with open("example.txt" , "a") as file:
+    file.write("File handling in Python is simple.\nPractice makes perfect.")
+    # data = file.read()
+    print("ok")
+
+
+# Write a program to count the number of lines in a file.
+with open("example.txt" , "r") as file:
+    count = 0
+    data = file.readlines()
+    count = len(data)
+    print(count)
+
+
+
+
