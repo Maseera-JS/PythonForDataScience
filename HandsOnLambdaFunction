@@ -1,0 +1,49 @@
+# Add 10 to each element in a list
+lamb = map(lambda x : x+10 , [1,2,3,4,5])
+l = [i for i in lamb]
+print(l)
+
+
+# Find the age greater than or equal to 18 
+ages = [12, 18, 25, 14, 32]
+lamb = filter(lambda x : x>=18 , ages)
+l = [i for i in lamb]
+print(l)
+
+# Add all the elements from a list
+nums = [1, 2, 3, 4]
+red = reduce(lambda x,y: x+y , nums)
+print(red)
+
+# Sort the list based on the 2nd element of each tuple
+fruits = [('apple', 3), ('banana', 1), ('cherry', 2)]
+sortedData = sorted(fruits , key = lambda x:x[1])
+print(sortedData)
+
+
+# Write a lambda function to check if a number is even or odd. Test it with the number 11.
+x = 11
+evenOrOdd = "even" if x%2==0 else "odd"
+print(evenOrOdd)
+
+
+# Use a lambda function within a list comprehension to create a list of cubes for numbers from 1 to 5.
+
+cubes = [(lambda x : x**3)(i) for i in range(1,6) ]
+print(cubes)
+
+
+# Write a lambda function to check if a string starts with the letter "P". Test it with the string "Python".
+
+string = (lambda x : x.startswith("P"))
+print(string("Python"))
+
+
+# Use both map() and filter() together:
+# nums = [1, 2, 3, 4, 5, 6]
+# Double each number only if it's even.
+
+nums = [1, 2, 3, 4, 5, 6]
+mapFilter = map(lambda x : x*2 , filter(lambda x: x%2==0 , nums))
+result = [i for i in mapFilter]
+print(result)
