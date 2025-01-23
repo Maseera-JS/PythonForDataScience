@@ -1,0 +1,130 @@
+# OOP's
+
+# Create a class called Car with the following attributes:
+# make: (e.g., Toyota, Honda)
+# model: (e.g., Corolla, Civic)
+# year: (e.g., 2020, 2021)
+
+
+class Car:
+    def __init__(self,make , model , year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+
+    def display_info(self):
+        return f"{self.make} , {self.model} , {self.year}"
+
+
+toyota = Car('Toyota' , 'Corolla', 2020)
+honda = Car('Honda' , 'Civic',2021)
+
+print(toyota.display_info())
+print(honda.display_info())
+        
+        
+    
+
+# Create a BankAccount class with the following:
+# Attributes: account_holder (name of the account holder), balance (initial balance, set to 0 by default)
+# Methods:
+# deposit: Takes an amount to deposit into the account.
+# withdraw: Takes an amount to withdraw from the account. Ensure balance doesn't go negative.
+# display_balance: Displays the current balance of the account.
+
+
+class BankAccount:
+    def __init__(self,account_holder,balance,depositAmount, withdrawlAmt):
+        self.account_holder = account_holder
+        self.balance = balance
+        self.depositAmount = depositAmount
+        self.withdrawlAmt = withdrawlAmt
+
+    def deposit(self):
+        self.balance += self.depositAmount
+        return f"The amount deposited is {self.depositAmount}"
+
+    def withdraw(self):
+        return f"The amount withdraw is {self.withdrawlAmt}"
+
+    def display_balance(self):
+        return f"The balance amount is {self.balance - self.withdrawlAmt}"
+
+
+
+b = BankAccount('Maseera' , 0,2000,1000)
+print(b.deposit())
+print(b.withdraw())
+print(b.display_balance())
+
+
+
+
+# Create a Person class with the following attributes:
+# name (string)
+# age (integer)
+# Add a method greet that prints a greeting like: "Hello, my name is [name] and I am [age] years old."
+# Create an object of Person and call the greet method.
+
+
+class Person:
+     def __init__(self,name,age):
+         self.name = name
+         self.age = age
+
+     def greet(self):
+         return f"Hello my name is {self.name} and I am {self.age} years old."
+
+
+
+person = Person('Maseera',25)
+print(person.greet())
+
+
+
+
+# Create a Circle class with an attribute radius.
+# Add a method area that calculates and returns the area of the circle (use the formula π * radius^2).
+# Create an object of Circle and print the area for a given radius.
+
+class Circle:
+     def __init__(self,radius):
+         self.radius = radius
+
+     def calculateArea(self):
+         return f"The area of circle is {3.14 * self.radius * self.radius}"
+
+
+circle = Circle(5)
+circle.calculateArea()
+
+
+
+# Create a base class Shape with a method area (return 0 since not all shapes can have an area). 
+# Create a derived class Rectangle that inherits from Shape and has attributes length and width. 
+# Override the area method to calculate and return the area of the rectangle (length * width).
+
+class Shape:
+    def area(self):
+        return 0
+      
+    
+
+
+class Rectangle(Shape):
+    def __init__(self,length ,breadth):
+        self.length = length
+        self.breadth = breadth
+
+
+    def area(self):
+        return self.length * self.breadth
+
+
+
+shape = Shape()
+rect = Rectangle(2,3)
+print(rect.area())
+    
+
