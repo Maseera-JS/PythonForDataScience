@@ -1,0 +1,131 @@
+#Abstraction
+from abc import ABC , abstractmethod
+
+#1️⃣ Create an abstract class Animal with an abstract method make_sound(). Create two subclasses Dog and Cat that implement make_sound().
+
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Dog says bow wow"
+
+
+
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Cat says meow meow"
+
+
+dog = Dog()
+print(dog.make_sound())
+
+cat = Cat()
+print(cat.make_sound())
+
+
+
+
+
+
+
+
+
+# 2️⃣ Create an abstract class Shape with an abstract method area(). Implement subclasses Circle and Rectangle to calculate areas.
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Circle(Shape):
+    def area(self,r):
+        return 3.14 *r*r
+
+
+class Rectangle(Shape):
+    def area(self, l,b):
+        return l*b
+
+
+circle = Circle()
+print(circle.area(5))
+
+rectangle = Rectangle()
+print(rectangle.area(2,3))
+
+
+# 3️⃣ Design an abstract class Payment with an abstract method pay(). Create subclasses CreditCardPayment and UPIPayment that define how payments are processed.
+
+class Payment(ABC):
+    @abstractmethod
+    def pay(self):
+        pass
+
+
+class CreditCardPayment(Payment):
+    def pay(self):
+        return "Payment is made through credit card"
+
+class UPIPayment(Payment):
+    def pay(self):
+        return "Payment is made through UPI"
+
+
+credit = CreditCardPayment()
+print(credit.pay())
+
+upi = UPIPayment()
+print(upi.pay())
+
+# 4️⃣ Make an abstract class Employee with an abstract method calculate_salary(). Implement FullTimeEmployee and PartTimeEmployee subclasses with salary calculations.
+
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+
+class FullTimeEmployee(Employee):
+    def calculate_salary(self,days):
+        perDay = 800
+        return f"Salary is calculated based on your working days - {days} {days*perDay}"
+
+class PartTimeEmployee(Employee):
+    def calculate_salary(self,hours):
+        basic = 200
+        return f"Salary is calculated based on your working hour {basic * hours}"
+
+
+fullTime = FullTimeEmployee()
+print(fullTime.calculate_salary(5))
+
+partTime = PartTimeEmployee()
+print(partTime.calculate_salary(12))
+
+# 5️⃣ Create an abstract class Appliance with an abstract method turn_on(). Implement Fan and Light subclasses that define how they turn on. 
+class Appliance(ABC):
+    @abstractmethod
+    def turn_on(self):
+        pass
+
+
+class Fan(Appliance):
+    def turn_on(self):
+        return "Turn on the fan with the help of button"
+
+class Light(Appliance):
+    def turn_on(self):
+        return "Turn on the light with the help of switch"
+
+
+fan = Fan()
+print(fan.turn_on())
+
+light = Light()
+print(light.turn_on())
