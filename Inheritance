@@ -1,0 +1,141 @@
+# Inheritance:
+
+
+# Single inheritance
+class Animal():
+    def sound(self):
+        return "Animal have sound"
+
+class Cat(Animal):
+    def catSound(self):
+        return "Cat says meow meow"
+
+
+
+
+animal = Animal()
+print(animal.sound())
+
+cat = Cat()
+print(cat.catSound())
+
+
+
+# Multiple inheritance : 2 base class
+
+class Animal():
+    def sound(self):
+        return "Animal have sound"
+
+class Cat():
+    def catSound(self):
+        return "Cat says meow meow"
+
+class Kitten(Animal,Cat):
+    def kitten(self):
+        return "Kiten says kit kit kitttttttttttt"
+
+
+kitten = Kitten()
+print(kitten.kitten())
+print(kitten.catSound())
+print(kitten.sound())
+
+
+
+# Multilevel : parents hierarchy : A class inherits from another, which in turn inherits from another.
+class Animal():
+    def sound(self):
+        return "Animal have sound"
+
+class Cat(Animal):
+    def catSound(self):
+        return "Cat says meow meow"
+
+class Kitten(Cat):
+    def kitten(self):
+        return "Kiten says kit kit kitttttttttttt"
+
+
+animal = Animal()
+print(animal.sound())
+
+cat = Cat()
+print(cat.catSound())
+print(cat.sound())
+
+
+kitten = Kitten()
+print(kitten.kitten())
+print(kitten.catSound())
+print(kitten.sound())
+
+
+print("----------------------------------------------")
+
+# Hierarchical : 1 common base for multiple child
+
+class Animal():
+    def sound(self):
+        return "Animal have sound"
+
+class Cat(Animal):
+    def catSound(self):
+        return "Cat says meow meow"
+
+class Kitten(Animal):
+    def kitten(self):
+        return "Kiten says kit kit kitttttttttttt"
+
+
+animal = Animal()
+print(animal.sound())
+
+cat = Cat()
+print(cat.catSound())
+print(cat.sound())
+
+
+kitten = Kitten()
+print(kitten.kitten())
+print(kitten.sound())
+
+print("----------------------------------------")
+
+# Hybrid inheritance: A combination of multiple types of inheritance.
+class Animal():
+    def sound(self):
+        return "Animal have sound"
+
+class Cat(Animal):
+    def catSound(self):
+        return "Cat says meow meow"
+
+class Kitten(Animal):
+    def kitten(self):
+        return "Kiten says kit kit kitttttttttttt"
+
+class Kitty(Cat,Kitten):
+    def kitty(self):
+        return "Kitty says kittttttttttttyyyyy"
+
+
+animal = Animal()
+print(animal.sound())
+
+cat = Cat()
+print(cat.catSound())
+print(cat.sound())
+
+
+kitten = Kitten()
+print(kitten.kitten())
+print(kitten.sound())
+
+
+kitty = Kitty()
+print(kitty.kitty())
+print(kitty.kitten())
+print(kitty.sound())
+print(kitty.catSound())
+print(kitty.sound())
