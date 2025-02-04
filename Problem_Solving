@@ -1,0 +1,92 @@
+#Problem solving
+
+# 🔹 Abstraction
+# Create an abstract class Vehicle with an abstract method max_speed(). Implement subclasses Car and Bike that define their own max_speed().
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def max_speed():
+        pass
+
+
+class Car(Vehicle):
+    def max_speed(self):
+        return "The max speed of car is 90km/hr"
+
+
+class Bike(Vehicle):
+    def max_speed(self):
+        return "The max speed of bike is 60km/hr"
+
+
+
+car = Car()
+print(car.max_speed())
+
+bike = Bike()
+print(bike.max_speed())
+
+
+
+# Write a Python program demonstrating multilevel inheritance, where:
+# Person has a method speak().
+# Employee inherits from Person and has a method work().
+# Manager inherits from Employee and has a method lead().
+# Create an object of Manager and call all three methods.
+
+class Person():
+    def speak(self):
+        return "A person speak"
+
+
+class Employee(Person):
+    def work(self):
+        return "Employee is a person at work"
+
+
+class Manager(Employee):
+    def lead(self):
+        return "Manager lead the employee"
+
+
+manager = Manager()
+print(manager.speak())
+print(manager.work())
+print(manager.lead())
+
+
+
+# Create a Bird class with a fly() method. Implement two subclasses:
+# Sparrow (override fly() with "Sparrow flies low.")
+# Eagle (override fly() with "Eagle flies high.")
+# Create a function show_flight(bird) that takes a Bird object and calls fly().
+
+class Bird():
+    def fly(self):
+        pass
+
+class Sparrow(Bird):
+    def fly(self):
+        return "Sparrow flies low."
+
+class Eagle(Bird):
+    def fly(self):
+        return "Eagle flies high."
+
+    
+
+def show_flight(bird):
+        return bird.fly()
+
+
+
+b = Bird()
+e = Eagle()
+s = Sparrow()
+print(show_flight(s))
+
+       
+
+
