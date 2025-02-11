@@ -1,0 +1,84 @@
+class Student:
+    def __init__(self,name, rollNo, marks):
+        self.__name = name
+        self.__rollNo = rollNo
+        self.__marks = marks
+
+    def get_name(self):
+        return self.__name
+    def set_name(self,name):
+        self.__name = name
+
+    def get_rollNo(self):
+        return self.__rollNo
+
+    def set_rollNo(self,rollNo):
+        self.__rollNo = rollNo
+
+    def get_marks(self):
+        return self.__marks
+
+    def set_marks(self,marks):
+        self.__marks = marks
+
+stdList =[]
+
+def addStudent(student_obj):
+    stdList.append(student_obj)
+    return "object added successfully"
+
+s = Student("Arifa",102,500)
+
+
+
+
+
+def viewStudent():
+    for s in stdList:
+        print(f"The name of student is {s.get_name()} ,roll no is {s.get_rollNo()}, marks is {s.get_marks()}")
+
+
+
+
+def searchStudent():
+    rollNo = int(input("Enter the roll no"))
+    for s in stdList:
+        if s.get_rollNo() == rollNo:
+            return f"The name of student is {s.get_name()} ,roll no is {s.get_rollNo()}, marks is {s.get_marks()}"
+        else:
+            return "Not found"
+
+
+
+
+def updateStudent(rollNo):
+     for s in stdList:
+         if s.get_rollNo() == rollNo:
+             name = input("enter the name")
+             marks = int(input("enter the marks"))
+             s.set_name(name)
+             s.set_marks(marks)
+             return "Data updated successfully"
+         else:
+             return "Data not found"
+
+
+
+def deleteStd(rollNo):
+    for s in stdList:
+         if s.get_rollNo() == rollNo:
+             stdList.remove(s)
+             return "Data deleted successfully"
+         else:
+             return "Data not found"
+
+
+
+    
+addStudent(s2)
+viewStudent()
+searchStudent()
+updateStudent(104)
+deleteStd(104)
+
+
