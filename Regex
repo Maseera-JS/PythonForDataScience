@@ -1,0 +1,38 @@
+
+1️⃣ Extract all numbers from this string:
+"The price of the phone is 999 and the discount is 50"
+
+2️⃣ Find all words that start with "P" in this string:
+"Python and PHP are popular programming languages"
+
+3️⃣ Replace all digits with X in this string:
+"My phone number is 9876543210"
+
+4️⃣ Check if a given string is a valid email (e.g., "abc@example.com").
+
+
+
+# 1) 
+text = "The price of the phone is 999 and the discount is 50"
+res = re.findall(r'\d+',text)
+print(res)
+
+
+# 2) 
+txt = "Python and PHP are popular programming languages"
+res= re.findall(r'\bP\w*',txt)
+print(res)
+
+
+# 3)
+txt = "My phone number is 9876543210"
+res= re.sub(r'\d','X' , txt)
+print(res)
+
+
+# 4)
+mail = 'maseera@gmail.com'
+reg = r'^[\w.-]+@[a-zA-Z]+\.(com|org|net)$'  
+res = re.match(reg, mail)
+
+print(res)
