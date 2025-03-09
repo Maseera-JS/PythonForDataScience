@@ -1,0 +1,106 @@
+class TaskManager:
+    taskList = []
+    def __init__(self,task_id,title, due_date, status):
+        self.task_id = task_id
+        self.title = title
+        self.due_date = due_date
+        self.status = status
+
+    def addTask(self,task):
+        self.task_id = task.task_id
+        self.title = task.title
+        self.due_date = task.due_date
+        self.status = task.status
+
+        TaskManager.taskList.append(task)
+        
+
+    def viewTask(self,title):
+        
+        if not TaskManager.taskList:  # Check if list is empty
+               print("No tasks available.")
+               return
+        
+               print("\nCurrent Tasks:")
+        for task in TaskManager.taskList:
+               if title == task.title:
+                   print(f"Task details :{task.task_id}. {task.title} - {task.due_date} - {task.status}")
+                   
+        
+    def updateTask(self , title ,status):
+        for task in TaskManager.taskList:
+            if task.title != title:
+                print("No such task available")
+                return 
+
+            else:
+                self.status = status
+                print("Task updated successfully")
+                return
+        
+        
+
+    def deleteTask(self, title):
+        for task in TaskManager.taskList :
+            if task.title == title:
+                TaskManager.taskList.remove(task)
+                print("Task deleted successfully")
+                return
+
+            
+        print("No such task does not exist")
+               
+
+    def searchTask(self,title):
+        for task in TaskManager.taskList:
+               if title == task.title:
+                   print(f"Task details found :{task.task_id}. {task.title} - {task.due_date} - {task.status}")
+                   return 
+                   
+               
+        print("No task found")
+                   
+
+
+
+    
+
+
+
+
+task = TaskManager(1,'Gym','2025-02-02','Pending')
+
+print("Welcome to Task Manager")
+while True:
+    try:
+        print("1. Add Task")
+        print("2. View Tasks")
+        print("3. Update Task")
+        print("4. Delete Task")
+        print("5. Search Task")
+        print("6. Exit")
+
+        choice = int(input("Enter your choice: "))  # Ensure numeric input
+        print(f"You chose: {choice}")  # Debugging statement
+
+        if choice == 6:
+            print("Exiting from Task Manager, see you again!!")
+            break
+        elif choice == 1:
+            task.addTask(task)
+            print("Task added successfully")
+        elif choice == 2:
+            task.viewTask('Gym')
+        elif choice == 3:
+            task.updateTask('Gym' ,'Done')
+        elif choice == 4:
+            task.deleteTask('Gym')
+        elif choice == 5:
+            task.searchTask('Gym')
+        else:
+            print("Invalid choice, please enter a number between 1 and 6.")
+
+    except ValueError:
+        print("Invalid input! Please enter a number.")
+
+        
